@@ -1,0 +1,18 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <nav>
+        <a class="nav-button" href="/blog/newpost">New</a>
+    </nav>
+    <main>
+        {% if entry %}
+            <div class="entry">
+                <div class="entry_header">
+                    <h2>{{entry.subject}}</h2>
+                    <span>{{entry.created.strftime("%B %d, %Y")}}</span>
+                </div>
+                <pre class="entry_body">{{entry.content}}</pre>
+            </div>
+        {% endif %}
+    </main>
+{% endblock %}

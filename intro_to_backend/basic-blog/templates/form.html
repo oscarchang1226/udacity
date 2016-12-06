@@ -1,0 +1,20 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <main>
+        <form method="post">
+            <label>
+                <span>Subject</span>
+                <input type="text" name="subject" value="{{subject}}"/>
+            </label>
+            <label>
+                <span>Content</span>
+                <textarea name="content" value="{{content}}"></textarea>
+            </label>
+            <div class="error">
+                <span>{{error}}</span>
+            </div>
+            <input class="nav-button submit-button" type="submit"/>
+        </form>
+    </main>
+{% endblock %}
