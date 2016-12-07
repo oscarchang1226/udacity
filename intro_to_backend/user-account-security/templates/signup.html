@@ -1,0 +1,56 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <main>
+        <h3>Register</h3>
+        <form method="post">
+            <label>
+                <span class="input-label">Username</span>
+                <input type="text" name="username" value="{{username}}"/>
+                <span class="error">
+                    {% if(valid_username == None)%}
+                        Please enter a valid username. (3-20 alphanumeric)
+                    {% else %}
+                        {% if(user_exist == True) %}
+                            User already exist.
+                        {% endif %}
+                    {% endif %}
+                </span>
+            </label>
+            <label>
+                <span class="input-label">Password</span>
+                <input type="password" name="password"/>
+                <span class="error">
+                    {% if(valid_password == None)%}
+                        Invalid password.
+                    {% endif %}
+                </span>
+            </label>
+            <label>
+                <span class="input-label">Confirm Password</span>
+                <input type="password" name="verify"/>
+                <span class="error">
+                    {% if(valid_password != None and valid_verify == False) %}
+                        Password dont match
+                    {% endif %}
+                </span>
+            </label>
+            <label>
+                <span class="input-label">Email(Optional)</span>
+                <input type="email" name="email" value="{{email}}"/>
+                <span class="error">
+                    {% if(valid_email == None) %}
+                        Please enter a valid email address
+                    {% endif %}
+                </span>
+            </label>
+            <input type="submit"/>
+        </form>
+
+        <div>
+            {% if users %}
+                <div>{{users}}</div>
+            {% endif %}
+        </div>
+    </main>
+{% endblock %}

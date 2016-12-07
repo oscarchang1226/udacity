@@ -1,0 +1,23 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <main>
+        <h3>Login</h3>
+        <form method="post">
+            <label>
+                <span>Username</span>
+                <input type="text" name="username" value="{{username}}"/>
+            </label>
+            <label>
+                <span>Password</span>
+                <input type="password" name="password"/>
+            </label>
+            <span class="error">
+                {% if(invalid_login)%}
+                    Invalid login.
+                {% endif %}
+            </span>
+            <input type="submit"/>
+        </form>
+    </main>
+{% endblock %}
